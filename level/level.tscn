@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4p6pwyce4wss"]
+
+[ext_resource type="PackedScene" uid="uid://di3b65jtiktfa" path="res://player/player.tscn" id="1_xlfc1"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_xlfc1")]
+position = Vector2(10, 9)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-10, -9)
+zoom = Vector2(10, 10)
+position_smoothing_enabled = true
+drag_vertical_enabled = true
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.180392, 0, 0.454902, 1)
