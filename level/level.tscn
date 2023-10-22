@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4p6pwyce4wss"]
+[gd_scene load_steps=8 format=3 uid="uid://b4p6pwyce4wss"]
 
 [ext_resource type="Script" path="res://level/level.gd" id="1_x2riq"]
 [ext_resource type="PackedScene" uid="uid://di3b65jtiktfa" path="res://player/player.tscn" id="1_xlfc1"]
 [ext_resource type="TileSet" uid="uid://brl7egr61ijip" path="res://tiles/gameplay.tres" id="2_ee03g"]
 [ext_resource type="PackedScene" uid="uid://cnfi7p0ex6pyj" path="res://finish/finish_line.tscn" id="5_0v18s"]
 [ext_resource type="PackedScene" uid="uid://n41imliledxs" path="res://level/levels/level_ui.tscn" id="5_bh1bl"]
+[ext_resource type="PackedScene" uid="uid://chgwkoitu35lp" path="res://level/player_camera_manager.tscn" id="6_xdjh5"]
 
 [sub_resource type="Environment" id="Environment_30ihm"]
 background_mode = 3
@@ -15,17 +16,23 @@ glow_hdr_threshold = 0.71
 [node name="Level" type="Node2D"]
 script = ExtResource("1_x2riq")
 
-[node name="Players" type="Node2D" parent="."]
+[node name="Logic" type="Node2D" parent="."]
 
-[node name="Player" parent="Players" instance=ExtResource("1_xlfc1")]
+[node name="PlayerCameraManager" parent="Logic" node_paths=PackedStringArray("camera", "player_container") instance=ExtResource("6_xdjh5")]
+camera = NodePath("../../LevelCamera")
+player_container = NodePath("../../Players")
 
-[node name="Camera2D" type="Camera2D" parent="Players/Player"]
+[node name="LevelCamera" type="Camera2D" parent="."]
 position = Vector2(-10, -9)
 offset = Vector2(64, 0)
 zoom = Vector2(8, 8)
 process_callback = 0
 position_smoothing_enabled = true
 drag_vertical_enabled = true
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="Player" parent="Players" instance=ExtResource("1_xlfc1")]
 
 [node name="Deco" type="Node2D" parent="."]
 
