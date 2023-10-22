@@ -5,6 +5,8 @@ extends Node2D
 
 @onready var music_player := $Audio/Music as AudioStreamPlayer
 @onready var camera := $Players/Player/Camera2D as Camera2D
+@onready var finish := $Gameplay/FinishLine as FinishLine
+@onready var player := $Players/Player as Player
 
 func _ready() -> void:
 	if level_data:
@@ -13,3 +15,9 @@ func _ready() -> void:
 
 func get_camera_position() -> Vector2:
 	return camera.global_position
+
+func get_length() -> float:
+	return finish.position.x
+
+func get_percentage() -> float:
+	return player.position.x / get_length()

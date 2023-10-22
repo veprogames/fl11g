@@ -24,6 +24,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 window/vsync/vsync_mode=0
 
+[gui]
+
+theme/custom="res://ui.tres"
+
 [input]
 
 player_input={

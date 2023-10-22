@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4p6pwyce4wss"]
+[gd_scene load_steps=7 format=3 uid="uid://b4p6pwyce4wss"]
 
 [ext_resource type="Script" path="res://level/level.gd" id="1_x2riq"]
 [ext_resource type="PackedScene" uid="uid://di3b65jtiktfa" path="res://player/player.tscn" id="1_xlfc1"]
 [ext_resource type="TileSet" uid="uid://brl7egr61ijip" path="res://tiles/gameplay.tres" id="2_ee03g"]
 [ext_resource type="PackedScene" uid="uid://cnfi7p0ex6pyj" path="res://finish/finish_line.tscn" id="5_0v18s"]
+[ext_resource type="PackedScene" uid="uid://n41imliledxs" path="res://level/levels/level_ui.tscn" id="5_bh1bl"]
 
 [sub_resource type="Environment" id="Environment_30ihm"]
 background_mode = 3
@@ -43,6 +44,9 @@ position = Vector2(64, 0)
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -100
+
+[node name="LevelUI" parent="." node_paths=PackedStringArray("level") instance=ExtResource("5_bh1bl")]
+level = NodePath("..")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_30ihm")

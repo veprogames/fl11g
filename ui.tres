@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://btcanwdf5xfq6"]
+
+[ext_resource type="FontFile" uid="uid://ptvbtun77ne3" path="res://fonts/press_start_2p/PressStart2P-Regular.ttf" id="1_lrl44"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwrs4"]
+bg_color = Color(0, 0.501961, 1, 1)
+shadow_color = Color(0, 0, 0, 0.862745)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+anti_aliasing = false
+
+[resource]
+default_font = ExtResource("1_lrl44")
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 4
+ProgressBar/styles/background = SubResource("StyleBoxFlat_nwrs4")
