@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbmimk4m2iyme"]
+
+[ext_resource type="Shader" path="res://backgrounds/level_background.gdshader" id="1_skj5p"]
+[ext_resource type="Script" path="res://backgrounds/level_background.gd" id="1_v4mqo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bsjcs"]
+shader = ExtResource("1_skj5p")
+shader_parameter/color_top = Color(0, 0, 0, 1)
+shader_parameter/color_bottom = null
+shader_parameter/scroll = 0.0
+
+[node name="LevelBackground" type="TextureRect"]
+material = SubResource("ShaderMaterial_bsjcs")
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v4mqo")
