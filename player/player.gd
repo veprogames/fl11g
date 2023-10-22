@@ -60,7 +60,8 @@ func _physics_process(delta: float) -> void:
 			var rid = collision.get_collider_rid()
 			var layer = PhysicsServer2D.body_get_collision_layer(rid)
 
-			if layer == COLLISION_LAYER_BLOCKS and is_equal_approx(absf(collision.get_angle()), PI / 2):
+			#if layer == COLLISION_LAYER_BLOCKS and is_equal_approx(absf(collision.get_angle()), PI / 2):
+			if layer == COLLISION_LAYER_BLOCKS and (absf(collision.get_angle() - PI / 2)) < PI / 4:
 				queue_free()
 			if layer == COLLISION_LAYER_HAZARD:
 				queue_free()
