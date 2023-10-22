@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://3slnrj3hi7g"]
+
+[ext_resource type="AudioStream" uid="uid://rghry4m2lntc" path="res://level/levels/01-soar/Soar [Original Mix] [334865].mp3" id="1_ea7b0"]
+[ext_resource type="Script" path="res://level/level_data.gd" id="1_i2esh"]
+
+[resource]
+script = ExtResource("1_i2esh")
+music = ExtResource("1_ea7b0")
+title = ""

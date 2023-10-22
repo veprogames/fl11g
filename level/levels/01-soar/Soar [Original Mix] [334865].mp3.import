@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://rghry4m2lntc"
+path="res://.godot/imported/Soar [Original Mix] [334865].mp3-7599b514a719b412490cc58df2f1a095.mp3str"
+
+[deps]
+
+source_file="res://level/levels/01-soar/Soar [Original Mix] [334865].mp3"
+dest_files=["res://.godot/imported/Soar [Original Mix] [334865].mp3-7599b514a719b412490cc58df2f1a095.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

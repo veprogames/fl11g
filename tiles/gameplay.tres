@@ -1,12 +1,16 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://brl7egr61ijip"]
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://brl7egr61ijip"]
 
 [ext_resource type="Texture2D" uid="uid://bigwj83len6mi" path="res://tiles/blocks.png" id="1_tr3qh"]
 [ext_resource type="Texture2D" uid="uid://dak0kv7eewcx3" path="res://tiles/spikes.png" id="2_21sas"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0ldn1"]
+polygon = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_585ly"]
 texture = ExtResource("1_tr3qh")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
+0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_0ldn1")
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
@@ -165,6 +169,7 @@ texture_region_size = Vector2i(8, 8)
 
 [resource]
 tile_size = Vector2i(8, 8)
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
 physics_layer_1/collision_layer = 4

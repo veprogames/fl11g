@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnfi7p0ex6pyj"]
+
+[ext_resource type="Script" path="res://finish/finish_line.gd" id="1_o64c7"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rr8fu"]
+size = Vector2(4, 200)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bqwty"]
+normal = Vector2(-1, 0)
+
+[node name="FinishLine" type="Area2D"]
+script = ExtResource("1_o64c7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_rr8fu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_bqwty")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
