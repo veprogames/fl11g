@@ -1,6 +1,8 @@
 class_name Level
 extends Node2D
 
+signal player_respawned()
+
 @export var level_data: LevelData
 
 @onready var PlayerCorpse := preload("res://player/player_corpse.tscn")
@@ -53,6 +55,7 @@ func spawn_player():
 	player_spawner.start_respawning_player()
 	await player_spawner.player_spawned
 	music_player.play()
+	player_respawned.emit()
 
 func respawn_player():
 	player_camera_manager.wait_and_go_to_spawner()
