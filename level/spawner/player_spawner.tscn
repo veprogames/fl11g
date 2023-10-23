@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dho5bl13q68ew"]
+
+[ext_resource type="Script" path="res://level/spawner/player_spawner.gd" id="1_44uxh"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_aik5v"]
+size = Vector2(16, 16)
+
+[node name="PlayerSpawner" type="Node2D"]
+script = ExtResource("1_44uxh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_aik5v")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true

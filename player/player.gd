@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+signal died()
+
 @onready var icon := $Icon as Node2D
 
 const SPEED := 90.0
@@ -14,6 +16,7 @@ var gravity := ProjectSettings.get_setting("physics/2d/default_gravity") as floa
 @export var size := 1.0
 
 var x_correction := 0.0
+var has_died := false
 
 func get_target_angle() -> float:
 	if is_on_floor():
@@ -60,8 +63,7 @@ func _physics_process(delta: float) -> void:
 			var rid = collision.get_collider_rid()
 			var layer = PhysicsServer2D.body_get_collision_layer(rid)
 
-			#if layer == COLLISION_LAYER_BLOCKS and is_equal_approx(absf(collision.get_angle()), PI / 2):
-			if layer == COLLISION_LAYER_BLOCKS and (absf(collision.get_angle() - PI / 2)) < PI / 4:
-				queue_free()
-			if layer == COLLISION_LAYER_HAZARD:
-				queue_free()
+			if not has_died and \
+			(layer == COLLISION_LAYER_BLOCKS and (absf(collision.get_angle() - PI / 2)) < PI / 4 or layer == COLLISION_LAYER_HAZARD):
+				died.emit()
+				has_died = true

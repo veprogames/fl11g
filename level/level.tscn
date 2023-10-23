@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://b4p6pwyce4wss"]
 
 [ext_resource type="Script" path="res://level/level.gd" id="1_x2riq"]
-[ext_resource type="PackedScene" uid="uid://di3b65jtiktfa" path="res://player/player.tscn" id="1_xlfc1"]
 [ext_resource type="TileSet" uid="uid://brl7egr61ijip" path="res://tiles/gameplay.tres" id="2_ee03g"]
 [ext_resource type="PackedScene" uid="uid://cnfi7p0ex6pyj" path="res://finish/finish_line.tscn" id="5_0v18s"]
 [ext_resource type="PackedScene" uid="uid://n41imliledxs" path="res://level/levels/level_ui.tscn" id="5_bh1bl"]
+[ext_resource type="PackedScene" uid="uid://dho5bl13q68ew" path="res://level/spawner/player_spawner.tscn" id="5_cse4q"]
 [ext_resource type="PackedScene" uid="uid://chgwkoitu35lp" path="res://level/player_camera_manager.tscn" id="6_xdjh5"]
 
 [sub_resource type="Environment" id="Environment_30ihm"]
@@ -18,9 +18,10 @@ script = ExtResource("1_x2riq")
 
 [node name="Logic" type="Node2D" parent="."]
 
-[node name="PlayerCameraManager" parent="Logic" node_paths=PackedStringArray("camera", "player_container") instance=ExtResource("6_xdjh5")]
+[node name="PlayerCameraManager" parent="Logic" node_paths=PackedStringArray("camera", "player_container", "target_spawner") instance=ExtResource("6_xdjh5")]
 camera = NodePath("../../LevelCamera")
 player_container = NodePath("../../Players")
+target_spawner = NodePath("../../Gameplay/PlayerSpawner")
 
 [node name="LevelCamera" type="Camera2D" parent="."]
 position = Vector2(-10, -9)
@@ -32,8 +33,6 @@ drag_vertical_enabled = true
 
 [node name="Players" type="Node2D" parent="."]
 
-[node name="Player" parent="Players" instance=ExtResource("1_xlfc1")]
-
 [node name="Deco" type="Node2D" parent="."]
 
 [node name="Gameplay" type="Node2D" parent="."]
@@ -41,6 +40,9 @@ drag_vertical_enabled = true
 [node name="Tiles" type="TileMap" parent="Gameplay"]
 tile_set = ExtResource("2_ee03g")
 format = 2
+
+[node name="PlayerSpawner" parent="Gameplay" node_paths=PackedStringArray("level") instance=ExtResource("5_cse4q")]
+level = NodePath("../..")
 
 [node name="FinishLine" parent="Gameplay" instance=ExtResource("5_0v18s")]
 position = Vector2(64, 0)

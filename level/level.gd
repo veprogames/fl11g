@@ -7,11 +7,14 @@ extends Node2D
 @onready var camera := $LevelCamera as Camera2D
 @onready var finish := $Gameplay/FinishLine as FinishLine
 @onready var player_camera_manager := $Logic/PlayerCameraManager as PlayerCameraManager
+@onready var player_spawner := $Gameplay/PlayerSpawner as PlayerSpawner
+
+@onready var container_players := $Players as Node2D
 
 func _ready() -> void:
 	if level_data:
 		music_player.stream = level_data.music
-		music_player.play()
+		spawn_player()
 
 func get_camera_position() -> Vector2:
 	return camera.global_position
@@ -22,3 +25,29 @@ func get_length() -> float:
 func get_percentage() -> float:
 	var x := player_camera_manager.get_highest_player_x()
 	return x / get_length()
+
+# Players
+
+func add_player(player: Player):
+	container_players.add_child(player)
+	player.died.connect(_on_player_died)
+
+func kill_all_players():
+	for player in container_players.get_children():
+		if player is Player:
+			player.queue_free()
+
+func spawn_player():
+	player_spawner.start_respawning_player()
+	await player_spawner.player_spawned
+	music_player.play()
+
+func respawn_player():
+	player_camera_manager.wait_and_go_to_spawner()
+	spawn_player()
+
+func _on_player_died():
+	kill_all_players()
+	music_player.stop()
+	
+	respawn_player()
