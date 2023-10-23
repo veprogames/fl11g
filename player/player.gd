@@ -34,6 +34,14 @@ func get_slope_speed_multiplier(slope_degrees: float) -> float:
 	# x = 1/sin(gamma) * 1
 	return 1.0 / sin(gamma) if is_on_floor() and slope_degrees > 0 else 1.0
 
+func died_to_block(layer: int, collision: KinematicCollision2D) -> bool:
+	# this angle * 2 -> angle range where player dies
+	const COLLISION_TOLERANCE = PI / 6
+	return layer == COLLISION_LAYER_BLOCKS and (absf(collision.get_angle() - PI / 2)) < COLLISION_TOLERANCE
+
+func died_to_hazard(layer: int) -> bool:
+	return layer == COLLISION_LAYER_HAZARD
+
 func _physics_process(delta: float) -> void:
 	# react to input
 	var input_multiplier := -1.25 if Input.is_action_pressed("player_input") else 1.0
@@ -63,7 +71,7 @@ func _physics_process(delta: float) -> void:
 			var rid = collision.get_collider_rid()
 			var layer = PhysicsServer2D.body_get_collision_layer(rid)
 
-			if not has_died and \
-			(layer == COLLISION_LAYER_BLOCKS and (absf(collision.get_angle() - PI / 2)) < PI / 4 or layer == COLLISION_LAYER_HAZARD):
+			var will_die = died_to_block(layer, collision) or died_to_hazard(layer)
+			if not has_died and will_die:
 				died.emit()
 				has_died = true
