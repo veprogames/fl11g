@@ -4,6 +4,7 @@ extends Node2D
 @export var level_data: LevelData
 
 @onready var PlayerCorpse := preload("res://player/player_corpse.tscn")
+@onready var PlayerDeathEffect := preload("res://player/player_death_effect.tscn")
 
 @onready var music_player := $Audio/Music as AudioStreamPlayer
 @onready var camera := $LevelCamera as Camera2D
@@ -36,8 +37,11 @@ func add_player(player: Player):
 
 func add_corpse(corpse_position: Vector2):
 	var corpse := PlayerCorpse.instantiate() as PlayerCorpse
+	var death_effect := PlayerDeathEffect.instantiate() as PlayerDeathEffect
 	corpse.position = corpse_position
+	death_effect.position = corpse_position
 	add_child(corpse)
+	add_child(death_effect)
 
 func kill_all_players():
 	for player in container_players.get_children():

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnfi7p0ex6pyj"]
+[gd_scene load_steps=5 format=3 uid="uid://cnfi7p0ex6pyj"]
 
 [ext_resource type="Script" path="res://finish/finish_line.gd" id="1_o64c7"]
+[ext_resource type="AudioStream" uid="uid://0go6alp38yt8" path="res://finish/win.wav" id="2_d3kxa"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rr8fu"]
 size = Vector2(4, 200)
@@ -16,5 +17,12 @@ texture = SubResource("PlaceholderTexture2D_rr8fu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("WorldBoundaryShape2D_bqwty")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_d3kxa")
+volume_db = 6.0
+
+[node name="QuitTimer" type="Timer" parent="."]
+wait_time = 2.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
