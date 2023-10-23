@@ -3,6 +3,8 @@ extends Node2D
 
 @export var level_data: LevelData
 
+@onready var PlayerCorpse := preload("res://player/player_corpse.tscn")
+
 @onready var music_player := $Audio/Music as AudioStreamPlayer
 @onready var camera := $LevelCamera as Camera2D
 @onready var finish := $Gameplay/FinishLine as FinishLine
@@ -32,9 +34,15 @@ func add_player(player: Player):
 	container_players.add_child(player)
 	player.died.connect(_on_player_died)
 
+func add_corpse(corpse_position: Vector2):
+	var corpse := PlayerCorpse.instantiate() as PlayerCorpse
+	corpse.position = corpse_position
+	add_child(corpse)
+
 func kill_all_players():
 	for player in container_players.get_children():
 		if player is Player:
+			add_corpse(player.position)
 			player.queue_free()
 
 func spawn_player():

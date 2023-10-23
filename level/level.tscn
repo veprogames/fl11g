@@ -29,6 +29,7 @@ offset = Vector2(64, 0)
 zoom = Vector2(8, 8)
 process_callback = 0
 position_smoothing_enabled = true
+position_smoothing_speed = 8.0
 drag_vertical_enabled = true
 
 [node name="Players" type="Node2D" parent="."]

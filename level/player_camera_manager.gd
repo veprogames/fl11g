@@ -6,13 +6,13 @@ extends Node2D
 @export var target_spawner: PlayerSpawner
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var target_player := get_farthest_player()
 	if target_player:
 		camera.global_position = target_player.position
 
 func wait_and_go_to_spawner():
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.75).timeout
 	camera.global_position = target_spawner.global_position
 
 func get_farthest_player() -> Player:
