@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="fl11g"
-run/main_scene="res://level/level.tscn"
+run/main_scene="res://mainmenu/main_menu.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*res://global/scene_manager.tscn"
 
 [display]
 
