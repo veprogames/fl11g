@@ -21,6 +21,7 @@ shape = SubResource("WorldBoundaryShape2D_bqwty")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_d3kxa")
 volume_db = 6.0
+bus = &"SFX"
 
 [node name="QuitTimer" type="Timer" parent="."]
 wait_time = 2.0

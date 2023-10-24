@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://g0hj0ttqcy4n"]
+
+[ext_resource type="Script" path="res://level/effects/level_music_effects.gd" id="1_s56yy"]
+
+[node name="LevelMusicEffects" type="Node2D"]
+script = ExtResource("1_s56yy")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4p6pwyce4wss"]
+[gd_scene load_steps=16 format=3 uid="uid://b4p6pwyce4wss"]
 
 [ext_resource type="Script" path="res://level/level.gd" id="1_x2riq"]
+[ext_resource type="PackedScene" uid="uid://g0hj0ttqcy4n" path="res://level/effects/level_music_effects.tscn" id="2_44c7m"]
 [ext_resource type="TileSet" uid="uid://brl7egr61ijip" path="res://tiles/gameplay.tres" id="2_ee03g"]
 [ext_resource type="PackedScene" uid="uid://b3e8pobgkgt24" path="res://tiles/level_tiles.tscn" id="3_ht5aw"]
 [ext_resource type="TileSet" uid="uid://cnkttkqtnl68p" path="res://tiles/ground.tres" id="4_5shwa"]
@@ -10,17 +11,36 @@
 [ext_resource type="PackedScene" uid="uid://ddml5bqt5vxu7" path="res://level/guidelines/level_guidelines.tscn" id="6_wm4jj"]
 [ext_resource type="PackedScene" uid="uid://chgwkoitu35lp" path="res://level/player_camera_manager.tscn" id="6_xdjh5"]
 [ext_resource type="PackedScene" uid="uid://bwf0q8nsfmsyj" path="res://level/guidelines/level_guidelines_recorder.tscn" id="7_lnj4d"]
+[ext_resource type="Environment" uid="uid://cphyt5yks58h8" path="res://level/level_environment.tres" id="11_6etse"]
 
-[sub_resource type="Environment" id="Environment_30ihm"]
-background_mode = 3
-glow_enabled = true
-glow_strength = 1.21
-glow_hdr_threshold = 0.71
+[sub_resource type="Gradient" id="Gradient_laqtk"]
+offsets = PackedFloat32Array(0, 0.118519, 0.288889, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bf4p6"]
+gradient = SubResource("Gradient_laqtk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1jjb3"]
+emission_shape = 3
+emission_box_extents = Vector3(320, 90, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 10.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color_ramp = SubResource("GradientTexture1D_bf4p6")
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_x2riq")
 
 [node name="Logic" type="Node2D" parent="."]
+
+[node name="LevelMusicEffects" parent="Logic" node_paths=PackedStringArray("particles", "environment") instance=ExtResource("2_44c7m")]
+particles = NodePath("../../LevelCamera/BGParticles")
+environment = NodePath("../../WorldEnvironment")
 
 [node name="PlayerCameraManager" parent="Logic" node_paths=PackedStringArray("camera", "player_container", "target_spawner") instance=ExtResource("6_xdjh5")]
 camera = NodePath("../../LevelCamera")
@@ -36,6 +56,12 @@ position_smoothing_speed = 8.0
 drag_vertical_enabled = true
 drag_top_margin = 0.35
 drag_bottom_margin = 0.25
+
+[node name="BGParticles" type="GPUParticles2D" parent="LevelCamera"]
+z_index = -80
+amount = 128
+process_material = SubResource("ParticleProcessMaterial_1jjb3")
+lifetime = 4.0
 
 [node name="Players" type="Node2D" parent="."]
 
@@ -63,6 +89,7 @@ player_manager = NodePath("../../Logic/PlayerCameraManager")
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="Music" type="AudioStreamPlayer" parent="Audio"]
+bus = &"Music"
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -100
@@ -71,4 +98,4 @@ layer = -100
 level = NodePath("..")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_30ihm")
+environment = ExtResource("11_6etse")
