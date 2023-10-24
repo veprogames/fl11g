@@ -19,6 +19,7 @@ signal player_respawned()
 func _ready() -> void:
 	if level_data:
 		music_player.stream = level_data.music
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		spawn_player()
 
 func get_camera_position() -> Vector2:
@@ -70,3 +71,6 @@ func _on_player_died():
 func _on_finish_line_player_entered_finish() -> void:
 	var tween := get_tree().create_tween()
 	tween.tween_property(music_player, ^"volume_db", -80, 2.0)
+
+func _on_tree_exited() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
