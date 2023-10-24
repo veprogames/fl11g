@@ -66,3 +66,7 @@ func _on_player_died():
 	music_player.stop()
 	
 	respawn_player()
+
+func _on_finish_line_player_entered_finish() -> void:
+	var tween := get_tree().create_tween()
+	tween.tween_property(music_player, ^"volume_db", -80, 2.0)

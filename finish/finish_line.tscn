@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" path="res://finish/finish_line.gd" id="1_o64c7"]
 [ext_resource type="AudioStream" uid="uid://0go6alp38yt8" path="res://finish/win.wav" id="2_d3kxa"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rr8fu"]
-size = Vector2(4, 200)
+[ext_resource type="Texture2D" uid="uid://cw4fi4kcckmyk" path="res://finish/flag.png" id="2_ncbhf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bqwty"]
 normal = Vector2(-1, 0)
@@ -13,7 +11,10 @@ normal = Vector2(-1, 0)
 script = ExtResource("1_o64c7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_rr8fu")
+texture_repeat = 2
+texture = ExtResource("2_ncbhf")
+region_enabled = true
+region_rect = Rect2(0, 0, 8, 300)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("WorldBoundaryShape2D_bqwty")
@@ -24,6 +25,46 @@ volume_db = 6.0
 bus = &"SFX"
 
 [node name="QuitTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 4.0
+
+[node name="EndscreenUI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Container" type="Control" parent="EndscreenUI"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="EndscreenUI/Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="EndscreenUI/Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -131.0
+offset_right = 512.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 128
+text = "The End!
+Nice..."
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

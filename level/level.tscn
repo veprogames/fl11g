@@ -99,3 +99,5 @@ level = NodePath("..")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("11_6etse")
+
+[connection signal="player_entered_finish" from="Gameplay/FinishLine" to="." method="_on_finish_line_player_entered_finish"]

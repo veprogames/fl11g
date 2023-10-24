@@ -7,9 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://t00pifekn61g" path="res://player/ship_overlay.png" id="4_dyp5v"]
 [ext_resource type="Texture2D" uid="uid://b60wpkdismm3i" path="res://player/cube_overlay.png" id="6_y2qup"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wu53b"]
-radius = 3.5
-
 [sub_resource type="Gradient" id="Gradient_fmnv1"]
 offsets = PackedFloat32Array(0, 0.0592593, 0.555556, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.933333, 1, 1, 1, 0)
@@ -32,6 +29,9 @@ scale_max = 2.0
 color = Color(1, 0.733333, 0, 1)
 color_ramp = SubResource("GradientTexture1D_p5yjq")
 hue_variation_max = 0.2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wu53b"]
+radius = 3.5
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 6
@@ -60,13 +60,13 @@ position = Vector2(0.5, -2.5)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_y2qup")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
-shape = SubResource("CircleShape2D_wu53b")
-
-[node name="Trail" type="GPUParticles2D" parent="."]
+[node name="Trail" type="GPUParticles2D" parent="Icon"]
 z_index = -5
 position = Vector2(-5, 1)
 amount = 64
 process_material = SubResource("ParticleProcessMaterial_3lyow")
 lifetime = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("CircleShape2D_wu53b")
