@@ -13,6 +13,7 @@ signal player_respawned()
 @onready var finish := $Gameplay/FinishLine as FinishLine
 @onready var player_camera_manager := $Logic/PlayerCameraManager as PlayerCameraManager
 @onready var player_spawner := $Gameplay/PlayerSpawner as PlayerSpawner
+@onready var label_attempt := $Deco/LabelAttempt as Label
 
 @onready var container_players := $Players as Node2D
 
@@ -21,6 +22,9 @@ func _ready() -> void:
 		music_player.stream = level_data.music
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		spawn_player()
+		
+		level_data.add_attempt_to_save()
+		label_attempt.text = "Attempt %d" % level_data.get_current_attempt()
 
 func get_camera_position() -> Vector2:
 	return camera.global_position
@@ -64,6 +68,10 @@ func respawn_player():
 
 func _on_player_died():
 	kill_all_players()
+	level_data.add_attempt_to_save()
+	level_data.submit_savegame_progress(get_percentage())
+	label_attempt.text = "Attempt %d" % level_data.get_current_attempt()
+	Savegame.save_game()
 	music_player.stop()
 	
 	respawn_player()
