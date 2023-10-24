@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2twnlu6jw6e2"]
+[gd_scene load_steps=10 format=3 uid="uid://b2twnlu6jw6e2"]
 
 [ext_resource type="Script" path="res://player/player_corpse.gd" id="1_2dgq6"]
 [ext_resource type="Texture2D" uid="uid://g7ibxy5q5fn2" path="res://player/ship.png" id="1_lt2pi"]
+[ext_resource type="Material" uid="uid://b2jyu1fh372oe" path="res://player/icon_colored_material.tres" id="2_3isrk"]
 [ext_resource type="Texture2D" uid="uid://dmgss0e2hy6o6" path="res://player/cube.png" id="2_rhx3h"]
+[ext_resource type="Texture2D" uid="uid://t00pifekn61g" path="res://player/ship_overlay.png" id="4_hgm27"]
+[ext_resource type="Texture2D" uid="uid://b60wpkdismm3i" path="res://player/cube_overlay.png" id="6_la1qk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ub0xg"]
 friction = 0.7
@@ -23,22 +26,35 @@ inertia = 1.0
 physics_material_override = SubResource("PhysicsMaterial_ub0xg")
 
 [node name="Ship" type="Sprite2D" parent="Ship"]
+material = ExtResource("2_3isrk")
 texture = ExtResource("1_lt2pi")
+
+[node name="Overlay" type="Sprite2D" parent="Ship"]
+z_index = 1
+texture = ExtResource("4_hgm27")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ship"]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_tqer1")
 
 [node name="Cube" type="RigidBody2D" parent="."]
+z_index = -2
 collision_mask = 6
 inertia = 1.0
 physics_material_override = SubResource("PhysicsMaterial_ub0xg")
 
 [node name="Cube" type="Sprite2D" parent="Cube"]
 z_index = -1
+material = ExtResource("2_3isrk")
 position = Vector2(0.5, -2.5)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_rhx3h")
+
+[node name="Overlay" type="Sprite2D" parent="Cube"]
+z_index = 1
+position = Vector2(0.5, -2.5)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_la1qk")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Cube"]
 position = Vector2(0.497241, -2.4857)

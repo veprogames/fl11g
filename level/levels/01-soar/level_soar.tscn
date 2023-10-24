@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://3slnrj3hi7g" path="res://level/levels/01-soar/soar.tres" id="2_umvov"]
 [ext_resource type="Resource" path="res://recorded_guidelines/guidelines-soar-09:43:58.tres" id="3_ddkks"]
 [ext_resource type="PackedScene" uid="uid://bbmimk4m2iyme" path="res://backgrounds/level_background.tscn" id="3_oy1qd"]
-[ext_resource type="Texture2D" uid="uid://b1jidtqk3n7pb" path="res://backgrounds/spheres_cubes.png" id="4_cv5qs"]
+[ext_resource type="Texture2D" uid="uid://0cuyy68m6xji" path="res://backgrounds/squares.png" id="5_st5dc"]
 
 [node name="LevelSoar" instance=ExtResource("1_0slmp")]
 level_data = ExtResource("2_umvov")
@@ -40,9 +40,7 @@ recording = true
 file_name_extra = "soar"
 
 [node name="LevelBackground" parent="Background" index="0" node_paths=PackedStringArray("level") instance=ExtResource("3_oy1qd")]
-texture = ExtResource("4_cv5qs")
-color_top = Color(0.541176, 0.541176, 0.541176, 1)
+texture = ExtResource("5_st5dc")
+color_top = Color(0, 0.501961, 0.768627, 1)
+color_bottom = Color(0, 0.0823529, 0.141176, 1)
 level = NodePath("../..")
-
-[node name="LevelUI" parent="." index="7"]
-visible = false

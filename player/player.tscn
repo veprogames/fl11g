@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://di3b65jtiktfa"]
+[gd_scene load_steps=11 format=3 uid="uid://di3b65jtiktfa"]
 
 [ext_resource type="Texture2D" uid="uid://g7ibxy5q5fn2" path="res://player/ship.png" id="1_ebt31"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_l3h4p"]
 [ext_resource type="Texture2D" uid="uid://dmgss0e2hy6o6" path="res://player/cube.png" id="2_36y8m"]
+[ext_resource type="Material" uid="uid://b2jyu1fh372oe" path="res://player/icon_colored_material.tres" id="2_iifxt"]
+[ext_resource type="Texture2D" uid="uid://t00pifekn61g" path="res://player/ship_overlay.png" id="4_dyp5v"]
+[ext_resource type="Texture2D" uid="uid://b60wpkdismm3i" path="res://player/cube_overlay.png" id="6_y2qup"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wu53b"]
 radius = 3.5
@@ -37,20 +40,32 @@ script = ExtResource("1_l3h4p")
 [node name="Icon" type="Node2D" parent="."]
 
 [node name="Ship" type="Sprite2D" parent="Icon"]
+z_index = -1
+material = ExtResource("2_iifxt")
 texture = ExtResource("1_ebt31")
 
+[node name="ShipOverlay" type="Sprite2D" parent="Icon"]
+texture = ExtResource("4_dyp5v")
+
 [node name="Cube" type="Sprite2D" parent="Icon"]
-z_index = -1
+z_index = -4
+material = ExtResource("2_iifxt")
 position = Vector2(0.5, -2.5)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_36y8m")
+
+[node name="CubeOverlay" type="Sprite2D" parent="Icon"]
+z_index = -3
+position = Vector2(0.5, -2.5)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_y2qup")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("CircleShape2D_wu53b")
 
 [node name="Trail" type="GPUParticles2D" parent="."]
-z_index = -1
+z_index = -5
 position = Vector2(-5, 1)
 amount = 64
 process_material = SubResource("ParticleProcessMaterial_3lyow")
