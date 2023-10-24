@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4p6pwyce4wss"]
+[gd_scene load_steps=12 format=3 uid="uid://b4p6pwyce4wss"]
 
 [ext_resource type="Script" path="res://level/level.gd" id="1_x2riq"]
 [ext_resource type="TileSet" uid="uid://brl7egr61ijip" path="res://tiles/gameplay.tres" id="2_ee03g"]
+[ext_resource type="PackedScene" uid="uid://b3e8pobgkgt24" path="res://tiles/level_tiles.tscn" id="3_ht5aw"]
+[ext_resource type="TileSet" uid="uid://cnkttkqtnl68p" path="res://tiles/ground.tres" id="4_5shwa"]
 [ext_resource type="PackedScene" uid="uid://cnfi7p0ex6pyj" path="res://finish/finish_line.tscn" id="5_0v18s"]
 [ext_resource type="PackedScene" uid="uid://n41imliledxs" path="res://level/levels/level_ui.tscn" id="5_bh1bl"]
 [ext_resource type="PackedScene" uid="uid://dho5bl13q68ew" path="res://level/spawner/player_spawner.tscn" id="5_cse4q"]
@@ -26,13 +28,14 @@ player_container = NodePath("../../Players")
 target_spawner = NodePath("../../Gameplay/PlayerSpawner")
 
 [node name="LevelCamera" type="Camera2D" parent="."]
-position = Vector2(-10, -9)
 offset = Vector2(64, 0)
 zoom = Vector2(8, 8)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 drag_vertical_enabled = true
+drag_top_margin = 0.35
+drag_bottom_margin = 0.25
 
 [node name="Players" type="Node2D" parent="."]
 
@@ -40,9 +43,11 @@ drag_vertical_enabled = true
 
 [node name="Gameplay" type="Node2D" parent="."]
 
-[node name="Tiles" type="TileMap" parent="Gameplay"]
+[node name="MainTiles" parent="Gameplay" instance=ExtResource("3_ht5aw")]
 tile_set = ExtResource("2_ee03g")
-format = 2
+
+[node name="GroundTiles" parent="Gameplay" instance=ExtResource("3_ht5aw")]
+tile_set = ExtResource("4_5shwa")
 
 [node name="PlayerSpawner" parent="Gameplay" node_paths=PackedStringArray("level") instance=ExtResource("5_cse4q")]
 level = NodePath("../..")
