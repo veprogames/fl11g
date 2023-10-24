@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwf0q8nsfmsyj"]
+
+[ext_resource type="Script" path="res://level/guidelines/level_guidelines_recorder.gd" id="1_t4l4s"]
+
+[node name="LevelGuidelinesRecorder" type="Node2D"]
+script = ExtResource("1_t4l4s")
