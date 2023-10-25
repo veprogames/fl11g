@@ -23,8 +23,7 @@ func _ready() -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		spawn_player()
 		
-		level_data.add_attempt_to_save()
-		label_attempt.text = "Attempt %d" % level_data.get_current_attempt()
+		add_attempt()
 
 func get_camera_position() -> Vector2:
 	return camera.global_position
@@ -68,15 +67,28 @@ func respawn_player():
 
 func _on_player_died():
 	kill_all_players()
-	level_data.add_attempt_to_save()
-	level_data.submit_savegame_progress(get_percentage())
-	label_attempt.text = "Attempt %d" % level_data.get_current_attempt()
+	
+	submit_percentage()
+	add_attempt()
 	Savegame.save_game()
+	
 	music_player.stop()
 	
 	respawn_player()
 
+# Attempts and Progress
+
+func add_attempt() -> void:
+	level_data.add_attempt_to_save()
+	label_attempt.text = "Attempt %d" % level_data.get_current_attempt()
+	label_attempt.modulate = Color.LIME if level_data.is_completed() else Color.WHITE
+
+func submit_percentage() -> void:
+	level_data.submit_percentage_to_savegame(get_percentage())
+
 func _on_finish_line_player_entered_finish() -> void:
+	level_data.submit_percentage_to_savegame(1.0)
+	Savegame.save_game()
 	var tween := get_tree().create_tween()
 	tween.tween_property(music_player, ^"volume_db", -80, 2.0)
 
