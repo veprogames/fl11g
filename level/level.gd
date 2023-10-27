@@ -5,6 +5,7 @@ signal player_respawned()
 
 @export var level_data: LevelData
 
+@onready var MainMenu := preload("res://mainmenu/main_menu.tscn")
 @onready var PlayerCorpse := preload("res://player/player_corpse.tscn")
 @onready var PlayerDeathEffect := preload("res://player/player_death_effect.tscn")
 
@@ -24,6 +25,10 @@ func _ready() -> void:
 		spawn_player()
 		
 		add_attempt()
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("game_quit"):
+		SceneManager.change_scene(MainMenu)
 
 func get_camera_position() -> Vector2:
 	return camera.global_position

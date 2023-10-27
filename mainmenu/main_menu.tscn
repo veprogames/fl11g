@@ -1,11 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0fr1bk4hu88k"]
+[gd_scene load_steps=4 format=3 uid="uid://b0fr1bk4hu88k"]
 
 [ext_resource type="Script" path="res://mainmenu/main_menu.gd" id="1_i83yy"]
+[ext_resource type="PackedScene" uid="uid://bviptfref5tp" path="res://mainmenu/level_button.tscn" id="2_2b4uu"]
+[ext_resource type="Resource" uid="uid://3slnrj3hi7g" path="res://level/levels/01-soar/soar.tres" id="3_ht3p4"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_i83yy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.105882, 0.137255, 0.219608, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -17,16 +28,23 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-text = "Play"
+theme_override_font_sizes/font_size = 64
+text = "fl11g"
+horizontal_alignment = 1
 
-[node name="ButtonQuit" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="LevelButton" parent="CanvasLayer/CenterContainer/VBoxContainer" instance=ExtResource("2_2b4uu")]
 layout_mode = 2
+level_data = ExtResource("3_ht3p4")
+
+[node name="ButtonQuit" type="Button" parent="CanvasLayer"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 40.0
+offset_bottom = 40.0
 mouse_default_cursor_shape = 2
-text = "Quit
+text = "X
 "
 
-[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonQuit" to="." method="_on_button_quit_pressed"]

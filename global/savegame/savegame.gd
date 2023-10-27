@@ -4,6 +4,9 @@ const SAVEGAME_PATH = "user://fl11g.tres"
 
 var save := SaveGameData.new()
 
+func _init() -> void:
+	load_game()
+
 func save_game() -> void:
 	ResourceSaver.save(save, SAVEGAME_PATH)
 

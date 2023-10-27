@@ -1,12 +1,8 @@
 extends Node2D
 
-@onready var scene := preload("res://level/levels/01-soar/level_soar.tscn")
-
-func _ready() -> void:
-	Savegame.load_game()
-
-func _on_button_pressed() -> void:
-	SceneManager.change_scene(scene)
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("game_quit"):
+		SceneManager.quit_game()
 
 func _on_button_quit_pressed() -> void:
 	SceneManager.quit_game()
