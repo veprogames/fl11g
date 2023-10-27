@@ -1,21 +1,82 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://btcanwdf5xfq6"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://btcanwdf5xfq6"]
 
 [ext_resource type="FontFile" uid="uid://ptvbtun77ne3" path="res://fonts/press_start_2p/PressStart2P-Regular.ttf" id="1_lrl44"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a13jo"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3n045"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 bg_color = Color(0, 0.501961, 1, 0.501961)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.25098, 0.501961, 0.501961)
+shadow_size = 1
+shadow_offset = Vector2(4, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3baw"]
-bg_color = Color(0, 0.501961, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pcaew"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0.627451, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.25098, 0.501961, 1)
+shadow_size = 1
+shadow_offset = Vector2(4, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rt5p2"]
-bg_color = Color(0, 0.54902, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hgx1c"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0.627451, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.25098, 0.501961, 1)
+shadow_size = 1
+shadow_offset = Vector2(4, 4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbfxa"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 bg_color = Color(0, 0.501961, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.25098, 0.501961, 1)
+shadow_size = 1
+shadow_offset = Vector2(4, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_or15c"]
-bg_color = Color(0, 0.627451, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwyb2"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0.745098, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.25098, 0.501961, 1)
+shadow_size = 1
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e1mbo"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwrs4"]
 bg_color = Color(0, 0.501961, 1, 1)
@@ -27,13 +88,20 @@ anti_aliasing = false
 [resource]
 default_font = ExtResource("1_lrl44")
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
-Button/constants/outline_size = 8
+Button/constants/outline_size = 12
 Button/font_sizes/font_size = 32
-Button/styles/disabled = SubResource("StyleBoxFlat_a13jo")
-Button/styles/focus = SubResource("StyleBoxFlat_h3baw")
-Button/styles/hover = SubResource("StyleBoxFlat_rt5p2")
+Button/styles/disabled = SubResource("StyleBoxFlat_3n045")
+Button/styles/focus = SubResource("StyleBoxFlat_pcaew")
+Button/styles/hover = SubResource("StyleBoxFlat_hgx1c")
 Button/styles/normal = SubResource("StyleBoxFlat_rbfxa")
-Button/styles/pressed = SubResource("StyleBoxFlat_or15c")
+Button/styles/pressed = SubResource("StyleBoxFlat_uwyb2")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.537255)
+Label/constants/outline_size = 8
+Label/constants/shadow_offset_x = 3
+Label/constants/shadow_offset_y = 3
+Label/font_sizes/font_size = 24
+Label/styles/normal = SubResource("StyleBoxEmpty_e1mbo")
 ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
 ProgressBar/constants/outline_size = 4
 ProgressBar/styles/background = SubResource("StyleBoxFlat_nwrs4")

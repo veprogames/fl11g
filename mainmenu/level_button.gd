@@ -2,8 +2,8 @@ extends Control
 
 @export var level_data: LevelData
 
-@onready var label_title: Label = $HBoxContainer/LabelTitle
-@onready var label_percent: Label = $HBoxContainer/LabelPercent
+@onready var label_title: Label = $Content/Info/LabelTitle
+@onready var label_percent: Label = $Content/Info/LabelPercent
 
 var Scene: PackedScene
 

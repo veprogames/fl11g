@@ -26,7 +26,7 @@ func _ready() -> void:
 		
 		add_attempt()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("game_quit"):
 		SceneManager.change_scene(MainMenu)
 

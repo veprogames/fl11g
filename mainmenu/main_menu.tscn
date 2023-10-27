@@ -1,8 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0fr1bk4hu88k"]
+[gd_scene load_steps=9 format=3 uid="uid://b0fr1bk4hu88k"]
 
 [ext_resource type="Script" path="res://mainmenu/main_menu.gd" id="1_i83yy"]
+[ext_resource type="Texture2D" uid="uid://bohy8bla7synf" path="res://particles/smoke.png" id="2_1fprc"]
 [ext_resource type="PackedScene" uid="uid://bviptfref5tp" path="res://mainmenu/level_button.tscn" id="2_2b4uu"]
 [ext_resource type="Resource" uid="uid://3slnrj3hi7g" path="res://level/levels/01-soar/soar.tres" id="3_ht3p4"]
+
+[sub_resource type="Gradient" id="Gradient_dwd32"]
+offsets = PackedFloat32Array(0, 0.111111, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ux4ko"]
+gradient = SubResource("Gradient_dwd32")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k8njj"]
+emission_shape = 3
+emission_box_extents = Vector3(1000, 200, 1)
+particle_flag_disable_z = true
+gravity = Vector3(0, -35, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_max = 360.0
+scale_min = 30.0
+scale_max = 30.0
+color = Color(0.211765, 0.211765, 0.211765, 0.0745098)
+color_ramp = SubResource("GradientTexture1D_ux4ko")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n5w15"]
+emission_shape = 3
+emission_box_extents = Vector3(1000, 200, 1)
+particle_flag_disable_z = true
+gravity = Vector3(0, -35, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_max = 360.0
+scale_min = 60.0
+scale_max = 60.0
+color = Color(0.682353, 0.682353, 0.682353, 1)
+color_ramp = SubResource("GradientTexture1D_ux4ko")
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_i83yy")
@@ -16,7 +50,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.105882, 0.137255, 0.219608, 1)
+color = Color(0.101961, 0.101961, 0.101961, 1)
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="CanvasLayer"]
+position = Vector2(978, 1134)
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_k8njj")
+texture = ExtResource("2_1fprc")
+lifetime = 10.0
+preprocess = 10.0
+visibility_rect = Rect2(-958.549, -1934.1, 1941.85, 2133.58)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer"]
+position = Vector2(978, 1134)
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_n5w15")
+lifetime = 10.0
+preprocess = 10.0
+visibility_rect = Rect2(-958.549, -1934.1, 1941.85, 2133.58)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 32.0
+offset_right = 320.0
+offset_bottom = 171.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 128
+text = "fl11g"
+horizontal_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -27,12 +92,6 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "fl11g"
-horizontal_alignment = 1
 
 [node name="LevelButton" parent="CanvasLayer/CenterContainer/VBoxContainer" instance=ExtResource("2_2b4uu")]
 layout_mode = 2

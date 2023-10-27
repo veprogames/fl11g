@@ -68,12 +68,12 @@ lifetime = 4.0
 [node name="Deco" type="Node2D" parent="."]
 
 [node name="LabelAttempt" type="Label" parent="Deco"]
-offset_left = -47.0
-offset_top = -25.0
-offset_right = 153.0
-offset_bottom = -6.0
-scale = Vector2(0.5, 0.5)
-text = "Attempt 0"
+offset_left = -44.0
+offset_top = -27.0
+offset_right = 252.0
+offset_bottom = 8.0
+scale = Vector2(0.3, 0.3)
+text = "Attempt 1000"
 horizontal_alignment = 1
 
 [node name="Gameplay" type="Node2D" parent="."]
