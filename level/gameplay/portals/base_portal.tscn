@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://7gyk88txuqi4"]
+
+[ext_resource type="Script" path="res://level/gameplay/portals/base_portal.gd" id="1_1vbsx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ijkg"]
+size = Vector2(6, 16)
+
+[node name="BasePortal" type="Area2D"]
+script = ExtResource("1_1vbsx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0ijkg")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

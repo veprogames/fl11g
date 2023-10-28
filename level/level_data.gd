@@ -4,6 +4,7 @@ extends Resource
 @export var id: String
 @export var music: AudioStreamMP3
 @export var title: String
+@export var song_url: String
 @export_file("*.tscn") var scene_path: String
 
 func create_levelstats_in_save() -> void:

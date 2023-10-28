@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://bl14j6cev1vuk"]
+
+[ext_resource type="Script" path="res://level/level_data.gd" id="1_2jjc5"]
+[ext_resource type="AudioStream" uid="uid://t8n2j7tibjm1" path="res://level/levels/99-lab/Dimrain47 - Operation Evolution [EpdI-NlIIAw].mp3" id="1_n0pjm"]
+
+[resource]
+script = ExtResource("1_2jjc5")
+id = "the_lab"
+music = ExtResource("1_n0pjm")
+title = "The Lab"
+song_url = "https://www.newgrounds.com/audio/listen/109650"
+scene_path = "res://level/levels/99-lab/level_lab.tscn"

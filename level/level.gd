@@ -46,18 +46,20 @@ func add_player(player: Player):
 	container_players.add_child(player)
 	player.died.connect(_on_player_died)
 
-func add_corpse(corpse_position: Vector2):
+func add_corpse(corpse_position: Vector2, corpse_scale: float):
 	var corpse := PlayerCorpse.instantiate() as PlayerCorpse
 	var death_effect := PlayerDeathEffect.instantiate() as PlayerDeathEffect
-	corpse.position = corpse_position
-	death_effect.position = corpse_position
 	add_child(corpse)
 	add_child(death_effect)
+	corpse.position = corpse_position
+	death_effect.position = corpse_position
+	corpse.set_size(corpse_scale)
+	death_effect.scale = Vector2.ONE * corpse_scale
 
 func kill_all_players():
 	for player in container_players.get_children():
 		if player is Player:
-			add_corpse(player.position)
+			add_corpse(player.position, player.size)
 			player.queue_free()
 
 func spawn_player():
