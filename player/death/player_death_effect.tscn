@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d8pldqcxg35j"]
 
-[ext_resource type="AudioStream" uid="uid://b5b24oh832hee" path="res://player/crash.wav" id="1_5kbkc"]
-[ext_resource type="Script" path="res://player/player_death_effect.gd" id="1_jrp24"]
+[ext_resource type="AudioStream" uid="uid://b5b24oh832hee" path="res://player/death/crash.wav" id="1_5kbkc"]
+[ext_resource type="Script" path="res://player/death/player_death_effect.gd" id="1_jrp24"]
 [ext_resource type="Texture2D" uid="uid://b81wmkfn7o0rj" path="res://player/death_circle.png" id="2_l4b0s"]
 
 [node name="PlayerDeathEffect" type="Node2D"]

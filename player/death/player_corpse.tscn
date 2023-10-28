@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://b2twnlu6jw6e2"]
 
-[ext_resource type="Script" path="res://player/player_corpse.gd" id="1_2dgq6"]
+[ext_resource type="Script" path="res://player/death/player_corpse.gd" id="1_2dgq6"]
 [ext_resource type="Texture2D" uid="uid://g7ibxy5q5fn2" path="res://player/ship.png" id="1_lt2pi"]
 [ext_resource type="Material" uid="uid://b2jyu1fh372oe" path="res://player/icon_colored_material.tres" id="2_3isrk"]
 [ext_resource type="Texture2D" uid="uid://dmgss0e2hy6o6" path="res://player/cube.png" id="2_rhx3h"]

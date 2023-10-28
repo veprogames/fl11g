@@ -6,8 +6,8 @@ signal player_respawned()
 @export var level_data: LevelData
 
 @onready var MainMenu := preload("res://mainmenu/main_menu.tscn")
-@onready var PlayerCorpse := preload("res://player/player_corpse.tscn")
-@onready var PlayerDeathEffect := preload("res://player/player_death_effect.tscn")
+@onready var PlayerCorpse := preload("res://player/death/player_corpse.tscn")
+@onready var PlayerDeathEffect := preload("res://player/death/player_death_effect.tscn")
 
 @onready var music_player := $Audio/Music as AudioStreamPlayer
 @onready var camera := $LevelCamera as Camera2D

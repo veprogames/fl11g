@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://0go6alp38yt8"
-path="res://.godot/imported/win.wav-608782bc38298ee36f4961570cf1079f.sample"
+path="res://.godot/imported/win.wav-d938654f1deb8fb47efedfefa863a554.sample"
 
 [deps]
 
-source_file="res://finish/win.wav"
-dest_files=["res://.godot/imported/win.wav-608782bc38298ee36f4961570cf1079f.sample"]
+source_file="res://level/gameplay/finish/win.wav"
+dest_files=["res://.godot/imported/win.wav-d938654f1deb8fb47efedfefa863a554.sample"]
 
 [params]
 

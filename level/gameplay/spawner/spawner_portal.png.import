@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccqb858mintyg"
-path="res://.godot/imported/spawner_portal.png-c11d6f75e7e9537e3174890dd2abaefa.ctex"
+path="res://.godot/imported/spawner_portal.png-a1d6d645e046271db00658257450200b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/spawner/spawner_portal.png"
-dest_files=["res://.godot/imported/spawner_portal.png-c11d6f75e7e9537e3174890dd2abaefa.ctex"]
+source_file="res://level/gameplay/spawner/spawner_portal.png"
+dest_files=["res://.godot/imported/spawner_portal.png-a1d6d645e046271db00658257450200b.ctex"]
 
 [params]
 
