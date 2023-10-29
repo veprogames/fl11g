@@ -7,13 +7,14 @@ signal died()
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 var collision_shape: CircleShape2D
 
-const SPEED := 90.0
+const BASE_SPEED := 90.0
 const COLLISION_LAYER_BLOCKS = 0b10
 const COLLISION_LAYER_HAZARD = 0b100
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity := ProjectSettings.get_setting("physics/2d/default_gravity") as float
 
+@export var speed_level := 0
 @export var gravity_mod := 1.0
 @export var size := 1.0 : set = _set_size, get = _get_size
 
@@ -59,6 +60,9 @@ func get_slope_speed_multiplier(slope_degrees: float) -> float:
 func get_max_velocity_y() -> float:
 	return gravity * absf(gravity_mod) / size * 0.33
 
+func get_x_velocity() -> float:
+	return BASE_SPEED * pow(1.25, speed_level)
+
 func died_to_block(layer: int, collision: KinematicCollision2D) -> bool:
 	# this angle * 2 -> angle range where player dies
 	const COLLISION_TOLERANCE = PI / 6
@@ -88,7 +92,9 @@ func _physics_process(delta: float) -> void:
 	# max y speed
 	var max_y_velocity := get_max_velocity_y()
 	
-	velocity.x = SPEED * slope_speed_mult - x_correction * 10
+	var x_velocity := get_x_velocity()
+	
+	velocity.x = x_velocity * slope_speed_mult - x_correction * 10
 	velocity.y += gravity * input_multiplier * delta
 	velocity.y = clampf(velocity.y, -max_y_velocity, max_y_velocity)
 	
@@ -99,7 +105,7 @@ func _physics_process(delta: float) -> void:
 	# account for deviations in x movement
 	# correct x movement over time to sync with music
 	var actual_movement = position.x - prev_x
-	var wanted_movement = SPEED * delta
+	var wanted_movement = x_velocity * delta
 	x_correction += (actual_movement - wanted_movement)
 	
 	for i in range(get_slide_collision_count()):

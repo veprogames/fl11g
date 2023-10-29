@@ -8,4 +8,5 @@ script = ExtResource("1_i2esh")
 id = "soar"
 music = ExtResource("1_ea7b0")
 title = "So it Begins..."
+song_url = ""
 scene_path = "res://level/levels/01-soar/level_soar.tscn"

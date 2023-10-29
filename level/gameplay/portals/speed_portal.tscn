@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsd6xybw6gy7l"]
+
+[ext_resource type="PackedScene" uid="uid://7gyk88txuqi4" path="res://level/gameplay/portals/base_portal.tscn" id="1_dod6u"]
+[ext_resource type="Script" path="res://level/gameplay/portals/speed_portal.gd" id="2_1gymm"]
+[ext_resource type="Texture2D" uid="uid://0rodtupnwjvq" path="res://level/gameplay/portals/speed.png" id="3_6hwjy"]
+
+[sub_resource type="Gradient" id="Gradient_7g8kn"]
+offsets = PackedFloat32Array(0, 0.45, 0.5, 0.55, 0.6, 0.65, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.882353, 0.388235, 0, 1, 0.0666667, 0.627451, 1, 1, 0, 0.792157, 0.564706, 1, 1, 0.403922, 1, 1, 1, 0, 0, 1, 0, 0, 0.776471, 1)
+
+[node name="SpeedPortal" instance=ExtResource("1_dod6u")]
+script = ExtResource("2_1gymm")
+speed_level = 0
+speed_gradient = SubResource("Gradient_7g8kn")
+
+[node name="Sprite" parent="." index="1"]
+texture_repeat = 2
+texture = ExtResource("3_6hwjy")
+region_enabled = true
+region_rect = Rect2(0, 0, 8, 16)
