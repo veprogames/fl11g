@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://dedr76kq37e6b"]
+
+[ext_resource type="AudioStream" uid="uid://d04edetyqon8l" path="res://level/levels/02-hyperioxx/paragonx9_hyperioxx_cut.mp3" id="1_e08t2"]
+[ext_resource type="Script" path="res://level/level_data.gd" id="1_thsbg"]
+
+[resource]
+script = ExtResource("1_thsbg")
+id = "hyperioxx"
+music = ExtResource("1_e08t2")
+title = "HyperioxX"
+song_url = "https://www.newgrounds.com/audio/listen/223469"
+scene_path = "res://level/levels/02-hyperioxx/level_hyperioxx.tscn"

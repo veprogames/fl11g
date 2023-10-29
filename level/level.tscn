@@ -5,11 +5,11 @@
 [ext_resource type="TileSet" uid="uid://brl7egr61ijip" path="res://tiles/gameplay.tres" id="2_ee03g"]
 [ext_resource type="PackedScene" uid="uid://b3e8pobgkgt24" path="res://tiles/level_tiles.tscn" id="3_ht5aw"]
 [ext_resource type="TileSet" uid="uid://cnkttkqtnl68p" path="res://tiles/ground.tres" id="4_5shwa"]
-[ext_resource type="PackedScene" uid="uid://cnfi7p0ex6pyj" path="res://finish/finish_line.tscn" id="5_0v18s"]
+[ext_resource type="PackedScene" uid="uid://cnfi7p0ex6pyj" path="res://level/gameplay/finish/finish_line.tscn" id="5_0v18s"]
 [ext_resource type="PackedScene" uid="uid://n41imliledxs" path="res://level/levels/level_ui.tscn" id="5_bh1bl"]
-[ext_resource type="PackedScene" uid="uid://dho5bl13q68ew" path="res://level/spawner/player_spawner.tscn" id="5_cse4q"]
+[ext_resource type="PackedScene" uid="uid://dho5bl13q68ew" path="res://level/gameplay/spawner/player_spawner.tscn" id="5_cse4q"]
 [ext_resource type="PackedScene" uid="uid://ddml5bqt5vxu7" path="res://level/guidelines/level_guidelines.tscn" id="6_wm4jj"]
-[ext_resource type="PackedScene" uid="uid://chgwkoitu35lp" path="res://level/player_camera_manager.tscn" id="6_xdjh5"]
+[ext_resource type="PackedScene" uid="uid://chgwkoitu35lp" path="res://level/gameplay/player_camera_manager/player_camera_manager.tscn" id="6_xdjh5"]
 [ext_resource type="PackedScene" uid="uid://bwf0q8nsfmsyj" path="res://level/guidelines/level_guidelines_recorder.tscn" id="7_lnj4d"]
 [ext_resource type="Environment" uid="uid://cphyt5yks58h8" path="res://level/level_environment.tres" id="11_6etse"]
 
@@ -82,6 +82,7 @@ horizontal_alignment = 1
 tile_set = ExtResource("2_ee03g")
 
 [node name="GroundTiles" parent="Gameplay" instance=ExtResource("3_ht5aw")]
+position = Vector2(0, -16)
 tile_set = ExtResource("4_5shwa")
 
 [node name="PlayerSpawner" parent="Gameplay" node_paths=PackedStringArray("level") instance=ExtResource("5_cse4q")]
@@ -94,6 +95,8 @@ position = Vector2(64, 0)
 
 [node name="LevelGuidelinesRecorder" parent="Gameplay" node_paths=PackedStringArray("player_manager") instance=ExtResource("7_lnj4d")]
 player_manager = NodePath("../../Logic/PlayerCameraManager")
+
+[node name="Portals" type="Node2D" parent="Gameplay"]
 
 [node name="Audio" type="Node2D" parent="."]
 
