@@ -4,7 +4,6 @@ extends BasePortal
 @export var speed_level := 0
 @export var speed_gradient: Gradient
 
-@onready var sprite: Sprite2D = $Sprite
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 func _ready() -> void:
@@ -26,4 +25,5 @@ func _ready() -> void:
 		collision_shape_2d.shape = new_shape
 
 func act(player: Player) -> void:
+	super.act(player)
 	player.speed_level = speed_level

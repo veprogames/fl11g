@@ -7,6 +7,6 @@
 script = ExtResource("1_thsbg")
 id = "hyperioxx"
 music = ExtResource("1_e08t2")
-title = "HyperioxX"
+title = "Supersize Me!"
 song_url = "https://www.newgrounds.com/audio/listen/223469"
 scene_path = "res://level/levels/02-hyperioxx/level_hyperioxx.tscn"
