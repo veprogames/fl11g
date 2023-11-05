@@ -1,5 +1,6 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://btcanwdf5xfq6"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://btcanwdf5xfq6"]
 
+[ext_resource type="Texture2D" uid="uid://d1knfke64322h" path="res://level/ui/progress_bar.png" id="1_hpuuc"]
 [ext_resource type="FontFile" uid="uid://ptvbtun77ne3" path="res://fonts/press_start_2p/PressStart2P-Regular.ttf" id="1_lrl44"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3n045"]
@@ -85,12 +86,10 @@ shadow_size = 1
 shadow_offset = Vector2(0, 4)
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7lfh"]
-bg_color = Color(0, 0.501961, 1, 1)
-shadow_color = Color(0, 0, 0, 0.862745)
-shadow_size = 1
-shadow_offset = Vector2(0, 4)
-anti_aliasing = false
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sedma"]
+texture = ExtResource("1_hpuuc")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [resource]
 default_font = ExtResource("1_lrl44")
@@ -112,7 +111,7 @@ Label/styles/normal = SubResource("StyleBoxEmpty_e1mbo")
 ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
 ProgressBar/constants/outline_size = 4
 ProgressBar/styles/background = SubResource("StyleBoxFlat_8j2si")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_q7lfh")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_sedma")
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0.537255)
 RichTextLabel/constants/shadow_offset_x = 3

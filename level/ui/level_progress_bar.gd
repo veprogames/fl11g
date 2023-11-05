@@ -13,4 +13,4 @@ func _set_value(new_value: float) -> void:
 	value = new_value
 	bar.value = new_value
 	label_percent.text = "%.2f%%" % (new_value * 100.0)
-	label_percent.add_theme_color_override("font_color", Color.WHITE.lerp(Color.ORANGE, new_value))
+	label_percent.add_theme_color_override("font_color", Color.WHITE.lerp(Color.ORANGE, new_value ** 2.0))

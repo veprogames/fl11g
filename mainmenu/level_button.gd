@@ -17,7 +17,7 @@ func _ready() -> void:
 	
 	var percentage := level_data.get_current_percentage()
 	label_percent.text = "%.2f%%" % (percentage * 100)
-	label_percent.add_theme_color_override("font_color", Color.WHITE.lerp(Color.ORANGE, percentage))
+	label_percent.add_theme_color_override("font_color", Color.WHITE.lerp(Color.ORANGE, percentage ** 2.0))
 
 
 func _on_button_play_pressed() -> void:
