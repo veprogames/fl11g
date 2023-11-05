@@ -6,3 +6,7 @@ func _process(_delta: float) -> void:
 
 func _on_button_quit_pressed() -> void:
 	SceneManager.quit_game()
+
+
+func _on_label_subtitle_meta_clicked(meta) -> void:
+	OS.shell_open(meta)

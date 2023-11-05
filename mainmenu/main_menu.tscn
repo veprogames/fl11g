@@ -118,4 +118,17 @@ mouse_default_cursor_shape = 2
 text = "X
 "
 
+[node name="LabelSubtitle" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 192.0
+offset_right = 320.0
+offset_bottom = 217.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center]A [color=lime][url=\"https://store.steampowered.com/app/322170/Geometry_Dash/\"]Geometry Dash[/url][/color] Fan Game.[/center]"
+
 [connection signal="pressed" from="CanvasLayer/ButtonQuit" to="." method="_on_button_quit_pressed"]
+[connection signal="meta_clicked" from="CanvasLayer/LabelSubtitle" to="." method="_on_label_subtitle_meta_clicked"]
