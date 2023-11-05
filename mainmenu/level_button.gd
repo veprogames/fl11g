@@ -14,8 +14,15 @@ func _ready() -> void:
 	
 	Scene = load(level_data.scene_path)
 	label_title.text = level_data.title
-	label_percent.text = "%02d%%" % (level_data.get_current_percentage() * 100)
+	
+	var percentage := level_data.get_current_percentage()
+	label_percent.text = "%.2f%%" % (percentage * 100)
+	if percentage >= 1.0:
+		label_percent.add_theme_color_override("font_color", Color.ORANGE)
 
 
 func _on_button_play_pressed() -> void:
 	SceneManager.change_scene(Scene)
+
+func _on_button_music_pressed() -> void:
+	OS.shell_open(level_data.song_url)

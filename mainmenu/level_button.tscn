@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bviptfref5tp"]
+[gd_scene load_steps=4 format=3 uid="uid://bviptfref5tp"]
 
 [ext_resource type="Script" path="res://mainmenu/level_button.gd" id="1_3ypm7"]
 [ext_resource type="Texture2D" uid="uid://dhr17umh3odh4" path="res://mainmenu/play_level.png" id="2_6swbn"]
+[ext_resource type="Texture2D" uid="uid://bc8a8j1twfci3" path="res://mainmenu/open_music_url.png" id="3_k2uns"]
 
 [node name="LevelButton" type="Control"]
 custom_minimum_size = Vector2(640, 96)
@@ -10,6 +11,30 @@ anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 96.0
 script = ExtResource("1_3ypm7")
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.498039, 0.498039, 0.498039, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.117647, 0.117647, 1)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -47,21 +72,36 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.694118, 0.784314, 1, 1)
 text = "0%"
 
-[node name="ButtonPlay" type="Button" parent="Content"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Content"]
+custom_minimum_size = Vector2(0, 96)
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -32.0
+offset_left = -160.0
+offset_top = -48.0
 offset_right = -16.0
-offset_bottom = 32.0
+offset_bottom = 48.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 2
+
+[node name="ButtonPlay" type="Button" parent="Content/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 icon = ExtResource("2_6swbn")
 icon_alignment = 2
 
-[connection signal="pressed" from="Content/ButtonPlay" to="." method="_on_button_play_pressed"]
+[node name="ButtonMusic" type="Button" parent="Content/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+icon = ExtResource("3_k2uns")
+icon_alignment = 2
+
+[connection signal="pressed" from="Content/HBoxContainer/ButtonPlay" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="Content/HBoxContainer/ButtonMusic" to="." method="_on_button_music_pressed"]

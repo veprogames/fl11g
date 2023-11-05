@@ -94,7 +94,7 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 32
 
 [node name="LevelButtonSoar" parent="CanvasLayer/CenterContainer/VBoxContainer" instance=ExtResource("2_2b4uu")]
 layout_mode = 2
