@@ -58,7 +58,7 @@ func get_slope_speed_multiplier(slope_degrees: float) -> float:
 	return 1.0 / sin(gamma) if is_on_floor() and slope_degrees > 0 else 1.0
 
 func get_max_velocity_y() -> float:
-	return gravity * absf(gravity_mod) / size * 0.33
+	return gravity * absf(gravity_mod) / size * 0.4
 
 func get_x_velocity() -> float:
 	return BASE_SPEED * pow(1.25, speed_level)
