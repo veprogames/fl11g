@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0fr1bk4hu88k"]
+[gd_scene load_steps=12 format=3 uid="uid://b0fr1bk4hu88k"]
 
 [ext_resource type="Script" path="res://mainmenu/main_menu.gd" id="1_i83yy"]
 [ext_resource type="Texture2D" uid="uid://bohy8bla7synf" path="res://particles/smoke.png" id="2_1fprc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://3slnrj3hi7g" path="res://level/levels/01-soar/soar.tres" id="3_ht3p4"]
 [ext_resource type="Resource" uid="uid://dedr76kq37e6b" path="res://level/levels/02-hyperioxx/hyperioxx.tres" id="5_i0ad3"]
 [ext_resource type="Resource" uid="uid://bl14j6cev1vuk" path="res://level/levels/99-lab/lab.tres" id="5_kttjx"]
+[ext_resource type="PackedScene" uid="uid://lorar8bqyeq1" path="res://mainmenu/total_score.tscn" id="7_ehubs"]
 
 [sub_resource type="Gradient" id="Gradient_dwd32"]
 offsets = PackedFloat32Array(0, 0.111111, 1)
@@ -108,6 +109,19 @@ level_data = ExtResource("5_i0ad3")
 layout_mode = 2
 level_data = ExtResource("5_kttjx")
 debug_only = true
+
+[node name="TotalScore" parent="CanvasLayer" instance=ExtResource("7_ehubs")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -128.0
+offset_right = 250.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="ButtonQuit" type="Button" parent="CanvasLayer"]
 offset_left = 8.0

@@ -24,6 +24,7 @@ func _ready() -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		spawn_player()
 		
+		level_data.submit_debug()
 		add_attempt()
 
 func _process(_delta: float) -> void:

@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://lorar8bqyeq1"]
+
+[ext_resource type="Script" path="res://mainmenu/total_score.gd" id="1_15hrg"]
+
+[sub_resource type="Gradient" id="Gradient_yruu0"]
+offsets = PackedFloat32Array(0, 0.0674847, 0.134969, 0.337423, 0.527607, 0.779141, 1)
+colors = PackedColorArray(0.396889, 0.396889, 0.396889, 1, 1, 1, 1, 1, 1, 0.466667, 0, 1, 1, 0, 0.235294, 1, 1, 0, 1, 1, 0, 0.84072, 0.874816, 1, 1, 1, 0, 1)
+
+[node name="TotalScore" type="Control"]
+custom_minimum_size = Vector2(500, 128)
+layout_mode = 3
+anchors_preset = 0
+offset_bottom = 60.0
+script = ExtResource("1_15hrg")
+text_gradient = SubResource("Gradient_yruu0")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -65.0
+offset_right = 204.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Total Score"
+horizontal_alignment = 1
+
+[node name="LabelPercentage" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 80
+text = "0.00%"
+horizontal_alignment = 1

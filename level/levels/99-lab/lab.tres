@@ -9,4 +9,5 @@ id = "the_lab"
 music = ExtResource("1_n0pjm")
 title = "The Lab"
 song_url = "https://www.newgrounds.com/audio/listen/109650"
+debug = true
 scene_path = "res://level/levels/99-lab/level_lab.tscn"
