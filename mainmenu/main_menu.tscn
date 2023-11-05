@@ -96,17 +96,18 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="LevelButton" parent="CanvasLayer/CenterContainer/VBoxContainer" instance=ExtResource("2_2b4uu")]
+[node name="LevelButtonSoar" parent="CanvasLayer/CenterContainer/VBoxContainer" instance=ExtResource("2_2b4uu")]
 layout_mode = 2
 level_data = ExtResource("3_ht3p4")
 
-[node name="LevelButton3" parent="CanvasLayer/CenterContainer/VBoxContainer" instance=ExtResource("2_2b4uu")]
+[node name="LevelButtonHyperioxx" parent="CanvasLayer/CenterContainer/VBoxContainer" instance=ExtResource("2_2b4uu")]
 layout_mode = 2
 level_data = ExtResource("5_i0ad3")
 
-[node name="LevelButton2" parent="CanvasLayer/CenterContainer/VBoxContainer" instance=ExtResource("2_2b4uu")]
+[node name="LevelButtonLab" parent="CanvasLayer/CenterContainer/VBoxContainer" instance=ExtResource("2_2b4uu")]
 layout_mode = 2
 level_data = ExtResource("5_kttjx")
+debug_only = true
 
 [node name="ButtonQuit" type="Button" parent="CanvasLayer"]
 offset_left = 8.0
