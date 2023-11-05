@@ -3,6 +3,9 @@ extends Node2D
 @export var particles: GPUParticles2D
 @export var environment: WorldEnvironment
 
+@export_category("Configuration")
+@export var glow_strength := 1.0
+
 var environment_resource: Environment
 var base_glow_intensity := 1.0
 var effect := AudioServer.get_bus_effect_instance(1, 0) as AudioEffectSpectrumAnalyzerInstance
@@ -17,8 +20,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if effect != null:
-		var intensity := effect.get_magnitude_for_frequency_range(20, 20000).length() * 5.0
+		var intensity := effect.get_magnitude_for_frequency_range(20, 20000).length() * 7.5
 		if particles:
-			particles.speed_scale = 0.5 + 2.5 * intensity
+			particles.speed_scale = 0.5 + 3.5 * intensity
 		if environment_resource:
-			environment_resource.glow_intensity = base_glow_intensity * (1 + intensity)
+			environment_resource.glow_intensity = base_glow_intensity * (1 + intensity) * glow_strength

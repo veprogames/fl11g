@@ -64,6 +64,7 @@ z_index = -80
 amount = 128
 process_material = SubResource("ParticleProcessMaterial_1jjb3")
 lifetime = 4.0
+fixed_fps = 60
 
 [node name="Players" type="Node2D" parent="."]
 

@@ -11,6 +11,9 @@
 [node name="LevelHyperioxx" instance=ExtResource("1_agl21")]
 level_data = ExtResource("2_54t1m")
 
+[node name="LevelMusicEffects" parent="Logic" index="0"]
+glow_strength = 2.0
+
 [node name="PlayerCameraManager" parent="Logic" index="1"]
 follow_player_y = false
 
