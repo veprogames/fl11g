@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bohy8bla7synf" path="res://particles/smoke.png" id="4_m80ex"]
 
 [sub_resource type="Gradient" id="Gradient_jrjfd"]
-offsets = PackedFloat32Array(0, 0.22963, 1)
-colors = PackedColorArray(0, 1, 1, 1, 0.925926, 1, 0.0740741, 1, 1, 1, 0, 1)
+offsets = PackedFloat32Array(0, 0.047619, 0.22619, 0.690476, 1)
+colors = PackedColorArray(0, 1, 1, 0, 0, 1, 1, 1, 0.925926, 1, 0.0740741, 1, 0.925926, 1, 0.0740741, 1, 0.92549, 1, 0.0745098, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_63tb1"]
 gradient = SubResource("Gradient_jrjfd")
@@ -38,9 +38,9 @@ wait_time = 1.75
 one_shot = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-amount = 64
+amount = 96
 process_material = SubResource("ParticleProcessMaterial_7s68j")
 texture = ExtResource("4_m80ex")
-lifetime = 2.0
+lifetime = 3.0
 preprocess = 2.0
 fixed_fps = 60
