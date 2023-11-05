@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://btcanwdf5xfq6"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://btcanwdf5xfq6"]
 
 [ext_resource type="FontFile" uid="uid://ptvbtun77ne3" path="res://fonts/press_start_2p/PressStart2P-Regular.ttf" id="1_lrl44"]
 
@@ -78,7 +78,14 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwrs4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8j2si"]
+bg_color = Color(0, 0.0980392, 0.235294, 1)
+shadow_color = Color(0, 0, 0, 0.862745)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7lfh"]
 bg_color = Color(0, 0.501961, 1, 1)
 shadow_color = Color(0, 0, 0, 0.862745)
 shadow_size = 1
@@ -104,7 +111,8 @@ Label/font_sizes/font_size = 24
 Label/styles/normal = SubResource("StyleBoxEmpty_e1mbo")
 ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
 ProgressBar/constants/outline_size = 4
-ProgressBar/styles/background = SubResource("StyleBoxFlat_nwrs4")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_8j2si")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_q7lfh")
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0.537255)
 RichTextLabel/constants/shadow_offset_x = 3

@@ -1,20 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://n41imliledxs"]
+[gd_scene load_steps=3 format=3 uid="uid://n41imliledxs"]
 
 [ext_resource type="Script" path="res://level/levels/level_ui.gd" id="1_7snjc"]
+[ext_resource type="PackedScene" uid="uid://bj7s1p3jwkkbi" path="res://level/ui/level_progress_bar.tscn" id="2_wj4dn"]
 
 [node name="LevelUI" type="CanvasLayer"]
 script = ExtResource("1_7snjc")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="LevelProgressBar" parent="." instance=ExtResource("2_wj4dn")]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.0
 offset_left = -400.0
-offset_top = 16.0
 offset_right = 400.0
-offset_bottom = 52.0
-grow_horizontal = 2
-theme_override_constants/outline_size = 12
-theme_override_font_sizes/font_size = 36
-max_value = 1.0
-step = 0.0
+offset_bottom = 64.0
+grow_vertical = 1
