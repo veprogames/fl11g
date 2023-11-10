@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cpqfirowt8aug"
+path="res://.godot/imported/F-777 - Wander of Thought [3Hl1rMAv5ts].mp3-238d6cc3ffcce67e480b0f9a7ffedd96.mp3str"
+
+[deps]
+
+source_file="res://level/levels/03-wander/F-777 - Wander of Thought [3Hl1rMAv5ts].mp3"
+dest_files=["res://.godot/imported/F-777 - Wander of Thought [3Hl1rMAv5ts].mp3-238d6cc3ffcce67e480b0f9a7ffedd96.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

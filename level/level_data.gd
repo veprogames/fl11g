@@ -6,6 +6,7 @@ extends Resource
 @export var title: String
 @export var song_url: String
 @export var debug: bool
+@export var requirement: float
 @export_file("*.tscn") var scene_path: String
 
 func create_levelstats_in_save() -> void:
@@ -49,6 +50,9 @@ func submit_percentage_to_savegame(percentage: float) -> void:
 	var stats := get_stats()
 	if stats:
 		stats.percentage = maxf(stats.percentage, percentage)
+
+func is_unlocked() -> bool:
+	return Savegame.get_total_percentage() >= requirement
 
 func is_completed() -> bool:
 	var stats := get_stats()
