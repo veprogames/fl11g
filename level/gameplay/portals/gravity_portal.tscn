@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://df58otumq55l3"]
+
+[ext_resource type="PackedScene" uid="uid://7gyk88txuqi4" path="res://level/gameplay/portals/base_portal.tscn" id="1_nri5h"]
+[ext_resource type="Texture2D" uid="uid://cpsu83ljp8mdr" path="res://level/gameplay/portals/gravity.png" id="2_7x7hp"]
+[ext_resource type="Script" path="res://level/gameplay/portals/gravity_portal.gd" id="2_fu16t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1w8s2"]
+size = Vector2(8, 22)
+
+[node name="GravityPortal" instance=ExtResource("1_nri5h")]
+script = ExtResource("2_fu16t")
+gravity_mod = 1.0
+mode = 0
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_1w8s2")
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource("2_7x7hp")

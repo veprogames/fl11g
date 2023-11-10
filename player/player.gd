@@ -4,8 +4,6 @@ extends CharacterBody2D
 signal died()
 
 @onready var icon := $Icon as Node2D
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-var collision_shape: CircleShape2D
 
 const BASE_SPEED := 90.0
 const COLLISION_LAYER_BLOCKS = 0b10
@@ -15,7 +13,7 @@ const COLLISION_LAYER_HAZARD = 0b100
 var gravity := ProjectSettings.get_setting("physics/2d/default_gravity") as float
 
 @export var speed_level := 0
-@export var gravity_mod := 1.0
+@export var gravity_mod := 1.0 : set = _set_gravity_mod, get = _get_gravity_mod
 @export var size := 1.0 : set = _set_size, get = _get_size
 
 var x_correction := 0.0
@@ -27,23 +25,20 @@ func _get_size() -> float:
 
 func _set_size(new_size: float) -> void:
 	size = new_size
-	icon.scale = Vector2.ONE * new_size
-	collision_shape.radius = base_collision_circle_size * new_size
+	scale = get_icon_scale()
 
-func _ready() -> void:
-	# setup collision shape
-	# needs to be duplicated to its own reference
-	# so multiple players can be handled
-	collision_shape = collision_shape_2d.shape as CircleShape2D
-	if collision_shape:
-		base_collision_circle_size = collision_shape.radius
-		var new_collision_shape := collision_shape.duplicate()
-		collision_shape = new_collision_shape
-		collision_shape_2d.shape = new_collision_shape
+func _get_gravity_mod() -> float:
+	return gravity_mod
+
+func _set_gravity_mod(new_mod: float) -> void:
+	gravity_mod = new_mod
+	scale = get_icon_scale()
 
 func _process(delta: float) -> void:
-	icon.rotation += (get_target_angle() - icon.rotation) * delta * 10
-	#icon.scale.y = -1 if gravity_mod < 0 else 1
+	rotation += (get_target_angle() - rotation) * delta * 10
+
+func get_icon_scale() -> Vector2:
+	return Vector2(size, size if gravity_mod >= 0 else -size)
 
 func get_target_angle() -> float:
 	if is_on_floor():
