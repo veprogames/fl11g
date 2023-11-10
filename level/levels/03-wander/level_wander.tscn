@@ -1,5 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctoauwtanxusm"]
+[gd_scene load_steps=3 format=3 uid="uid://ctoauwtanxusm"]
 
 [ext_resource type="PackedScene" uid="uid://b4p6pwyce4wss" path="res://level/level.tscn" id="1_xedep"]
+[ext_resource type="Resource" uid="uid://cn3bxaklg5qqj" path="res://level/levels/03-wander/wander.tres" id="2_fu8x6"]
 
 [node name="LevelWander" instance=ExtResource("1_xedep")]
+level_data = ExtResource("2_fu8x6")
+
+[node name="FinishLine" parent="Gameplay" index="3"]
+position = Vector2(5000, 0)
+
+[node name="LevelGuidelinesRecorder" parent="Gameplay" index="5"]
+recording = true
+file_name_extra = "wander"

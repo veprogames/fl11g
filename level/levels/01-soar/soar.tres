@@ -10,4 +10,5 @@ music = ExtResource("1_ea7b0")
 title = "So it Begins..."
 song_url = "https://www.newgrounds.com/audio/listen/334865"
 debug = false
+requirement = 0.0
 scene_path = "res://level/levels/01-soar/level_soar.tscn"

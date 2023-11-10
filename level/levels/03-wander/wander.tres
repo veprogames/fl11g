@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://cn3bxaklg5qqj"]
 
-[ext_resource type="AudioStream" uid="uid://d04edetyqon8l" path="res://level/levels/02-hyperioxx/paragonx9_hyperioxx_cut.mp3" id="1_agh70"]
+[ext_resource type="AudioStream" uid="uid://cpqfirowt8aug" path="res://level/levels/03-wander/F-777 - Wander of Thought [3Hl1rMAv5ts].mp3" id="1_4btg5"]
 [ext_resource type="Script" path="res://level/level_data.gd" id="2_tslk0"]
 
 [resource]
 script = ExtResource("2_tslk0")
 id = "wander"
-music = ExtResource("1_agh70")
+music = ExtResource("1_4btg5")
 title = "Up Down Up Down"
 song_url = "https://www.newgrounds.com/audio/listen/349494"
 debug = false
