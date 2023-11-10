@@ -14,8 +14,8 @@
 [ext_resource type="Environment" uid="uid://cphyt5yks58h8" path="res://level/level_environment.tres" id="11_6etse"]
 
 [sub_resource type="Gradient" id="Gradient_laqtk"]
-offsets = PackedFloat32Array(0, 0.118519, 0.288889, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0, 0.118519, 0.622222, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.262745, 1, 1, 1, 0.0784314, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_bf4p6"]
 gradient = SubResource("Gradient_laqtk")
@@ -64,6 +64,7 @@ z_index = -80
 amount = 128
 process_material = SubResource("ParticleProcessMaterial_1jjb3")
 lifetime = 4.0
+preprocess = 5.0
 fixed_fps = 60
 
 [node name="Players" type="Node2D" parent="."]
