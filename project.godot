@@ -12,8 +12,10 @@ config_version=5
 
 config/name="fl11g"
 run/main_scene="res://mainmenu/main_menu.tscn"
+config/quit_on_go_back=false
 config/features=PackedStringArray("4.1", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
