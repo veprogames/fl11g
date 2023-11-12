@@ -15,7 +15,7 @@ func _ready() -> void:
 	elif gravity_mod < 0.0:
 		sprite.modulate = Color.YELLOW
 	else:
-		sprite.modulate = Color.PINK
+		sprite.modulate = Color.MAROON
 	
 	if mode == GravityMode.INVERT:
 		sprite.modulate = Color.GREEN

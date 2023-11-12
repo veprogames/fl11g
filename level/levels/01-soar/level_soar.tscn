@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnr0yuu58k76d"]
+[gd_scene load_steps=5 format=3 uid="uid://dnr0yuu58k76d"]
 
 [ext_resource type="PackedScene" uid="uid://b4p6pwyce4wss" path="res://level/level.tscn" id="1_0slmp"]
 [ext_resource type="Resource" uid="uid://3slnrj3hi7g" path="res://level/levels/01-soar/soar.tres" id="2_umvov"]
-[ext_resource type="Resource" path="res://recorded_guidelines/guidelines-soar-09:43:58.tres" id="3_ddkks"]
 [ext_resource type="PackedScene" uid="uid://bbmimk4m2iyme" path="res://backgrounds/level_background.tscn" id="3_oy1qd"]
 [ext_resource type="Texture2D" uid="uid://0cuyy68m6xji" path="res://backgrounds/squares.png" id="5_st5dc"]
 
@@ -22,9 +21,6 @@ layer_3/tile_data = PackedInt32Array(196607, 0, 1, 131072, 0, 1, 131073, 0, 1, 1
 
 [node name="FinishLine" parent="Gameplay" index="3"]
 position = Vector2(5725, 0)
-
-[node name="LevelGuidelines" parent="Gameplay" index="4"]
-data = ExtResource("3_ddkks")
 
 [node name="LevelGuidelinesRecorder" parent="Gameplay" index="5"]
 recording = true

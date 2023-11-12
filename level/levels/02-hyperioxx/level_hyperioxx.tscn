@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4qjlwqtym4jr"]
+[gd_scene load_steps=7 format=3 uid="uid://c4qjlwqtym4jr"]
 
 [ext_resource type="PackedScene" uid="uid://b4p6pwyce4wss" path="res://level/level.tscn" id="1_agl21"]
 [ext_resource type="Resource" uid="uid://dedr76kq37e6b" path="res://level/levels/02-hyperioxx/hyperioxx.tres" id="2_54t1m"]
 [ext_resource type="PackedScene" uid="uid://bbmimk4m2iyme" path="res://backgrounds/level_background.tscn" id="3_2q3jp"]
-[ext_resource type="Resource" path="res://recorded_guidelines/guidelines-hyperioxx-14:27:40.tres" id="3_ga6t4"]
 [ext_resource type="PackedScene" uid="uid://dsd6xybw6gy7l" path="res://level/gameplay/portals/speed_portal.tscn" id="4_ox0rx"]
 [ext_resource type="Texture2D" uid="uid://0cuyy68m6xji" path="res://backgrounds/squares.png" id="4_pbrvl"]
 [ext_resource type="PackedScene" uid="uid://dwbotuxqu0jgo" path="res://level/gameplay/portals/size_portal.tscn" id="5_7t0av"]
@@ -28,9 +27,6 @@ layer_3/tile_data = PackedInt32Array(196596, 0, 1, 196597, 0, 1, 196598, 0, 1, 1
 
 [node name="FinishLine" parent="Gameplay" index="3"]
 position = Vector2(5872, 0)
-
-[node name="LevelGuidelines" parent="Gameplay" index="4"]
-data = ExtResource("3_ga6t4")
 
 [node name="LevelGuidelinesRecorder" parent="Gameplay" index="5"]
 recording = true
