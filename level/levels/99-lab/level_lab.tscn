@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxd81w68udp5x"]
+[gd_scene load_steps=6 format=3 uid="uid://cxd81w68udp5x"]
 
 [ext_resource type="PackedScene" uid="uid://b4p6pwyce4wss" path="res://level/level.tscn" id="1_3hg7w"]
 [ext_resource type="Resource" uid="uid://bl14j6cev1vuk" path="res://level/levels/99-lab/lab.tres" id="2_oqye6"]
 [ext_resource type="PackedScene" uid="uid://df58otumq55l3" path="res://level/gameplay/portals/gravity_portal.tscn" id="4_1p5pp"]
 [ext_resource type="PackedScene" uid="uid://dsd6xybw6gy7l" path="res://level/gameplay/portals/speed_portal.tscn" id="4_06fah"]
+[ext_resource type="PackedScene" uid="uid://dwbotuxqu0jgo" path="res://level/gameplay/portals/size_portal.tscn" id="5_sx085"]
 
 [node name="LevelLab" instance=ExtResource("1_3hg7w")]
 level_data = ExtResource("2_oqye6")
@@ -68,3 +69,7 @@ mode = 1
 [node name="GravityPortal3" parent="Gameplay/Portals" index="5" instance=ExtResource("4_1p5pp")]
 position = Vector2(161, 1)
 gravity_mod = 0.0
+
+[node name="SizePortal" parent="Gameplay/Portals" index="6" instance=ExtResource("5_sx085")]
+position = Vector2(32, 3)
+scale = Vector2(0.5, 0.5)

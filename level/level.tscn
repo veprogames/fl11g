@@ -72,6 +72,7 @@ fixed_fps = 60
 [node name="Deco" type="Node2D" parent="."]
 
 [node name="LabelAttempt" type="Label" parent="Deco"]
+z_index = 5
 offset_left = -44.0
 offset_top = -27.0
 offset_right = 252.0

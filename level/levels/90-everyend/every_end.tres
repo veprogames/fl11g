@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://cx1sbhr1g65s3"]
+
+[ext_resource type="Script" path="res://level/level_data.gd" id="1_c6gvv"]
+[ext_resource type="AudioStream" uid="uid://8xr3h147hovm" path="res://level/levels/90-everyend/Every End... [99477].mp3" id="1_iy4aj"]
+
+[resource]
+script = ExtResource("1_c6gvv")
+id = "every_end"
+music = ExtResource("1_iy4aj")
+title = "Every End..."
+song_url = "https://www.newgrounds.com/audio/listen/99477"
+debug = false
+requirement = 3.0
+scene_path = "res://level/levels/90-everyend/level_every_end.tscn"
