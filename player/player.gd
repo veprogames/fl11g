@@ -75,6 +75,8 @@ func _physics_process(delta: float) -> void:
 	var input_multiplier := -1.25 if Input.is_action_pressed("player_input") else 1.0
 	
 	# size modifier: smaller -> fly up/down quicker
+	# In GD I discovered that Ship Size does not affect how it moves, at least roughly
+	# so this is disabled now:
 	# input_multiplier /= size
 	
 	# gravity modifier

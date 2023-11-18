@@ -11,5 +11,5 @@ func _ready() -> void:
 	var gradient_position := clampf(total / 10.0, 0.0, 1.0)
 	
 	label_percentage.text = "%.2f%%" % (total * 100)
-	label_percentage.add_theme_font_size_override("font_size", int(font_size * remap(total, 0.0, 5.0, 0.6, 1.4)))
+	label_percentage.add_theme_font_size_override("font_size", int(font_size * remap(total, 0.0, 4.0, 0.6, 1.4)))
 	label_percentage.add_theme_color_override("font_color", text_gradient.sample(gradient_position))
