@@ -16,8 +16,8 @@ config/quit_on_go_back=false
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
-version/version_int=10
-version/version_pretty="v1.0.0"
+version/version_int=101
+version/version_pretty="v1.0.1"
 
 [autoload]
 
